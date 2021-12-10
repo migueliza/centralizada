@@ -1,0 +1,58 @@
+Plantilla en fichero html
+<h2>{{nombre_componente}}</h2>
+<p></p>
+
+<!--<h2>{{listado_usuarios}}</h2>-->
+
+<form #formUsuario = "ngForm" (ngSubmit)="onSubmit(); formUsuario.reset();" style="width: 200px;">
+
+    <p>
+    <label>Nombre:</label>
+    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuario.nombreUsuario" required>
+    <span *ngIf="nombre.touched && !nombre.valid">
+        Nombre no valido
+    </span>
+</p>
+<p>
+    <label>Password:</label>
+    <input type="text" name="password" #password="ngModel" [(ngModel)]="usuario.passUsuario" required>
+    <span *ngIf="password.touched && !password.valid">
+        Password no valido
+    </span>
+</p>
+
+    <input type="submit" value="Guardar" [disabled]="!formUsuario.form.valid">
+
+</form>
+
+<!--<div style="float: left;" >
+    <h4>
+        Listado de usuarios
+    </h4>
+    <ul>
+        <li *ngFor="let usuario of usuarios">
+            {{usuario.nombre}} - {{usuario.password}}
+        </li>
+    </ul>
+</div>-->
+
+<br>
+
+<div style="float: left;">
+    <h4>
+        Listado de articulos
+    </h4>
+    <ul *ngIf="usuariosServicio">
+        <li *ngFor="let usuario of usuariosServicio">
+            {{usuario.nombreUsuario}} - {{usuario.passUsuario}}
+        </li>
+    </ul>
+    <span *ngIf="!usuariosServicio">Cargando listado...</span>
+    
+
+</div>
+
+
+
+<button (click)="redirigirHome()">Ir Home</button>
+

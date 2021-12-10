@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+<hr>
+<nav>
+    <a [routerLink]="['/pagina-principal']" [routerLinkActive]="['activado']">
+        Home
+    </a>
+    -
+    <a [routerLink]="['/usuarios']" [routerLinkActive]="['activado']">
+        Usuarios
+    </a>
+    -
+    <a [routerLink]="['/puerto']" [routerLinkActive]="['activado']">
+        Puertos
+    </a>
+</nav>
+<hr>
+<!--<usuarios></usuarios>
+
+<hr>
+<puerto></puerto>-->
+
+<router-outlet></router-outlet>
